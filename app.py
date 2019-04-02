@@ -75,10 +75,10 @@ def indexK2():
 #     """Return the data"""
 #     return render_template("data.html")
 
-@app.route("/name/<selectedname>")
-def name(selectedname):
+@app.route("/name")
+def name():
     """Return the choropleth for US"""
-    return render_template("name.html", name=selectedname)
+    return render_template("name.html", stateGender=stateGender, yearName=yearName)
 
 
 
