@@ -64,8 +64,8 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
-@app.route("/k2")
-def index():
+@app.route("/indexK2")
+def indexK2():
     """Return the homepage."""
     return render_template("indexK2.html")
 
