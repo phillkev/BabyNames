@@ -32,22 +32,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{url_for('index')}}">What's in a NAME?</a>
+        <a class="navbar-brand" href="index.html">What's in a NAME?</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="{{url_for('index')}}" class="dropdown-toggle" id="plotsDropdown" data-toggle="dropdown" role="button"
+            <a href="index.html" class="dropdown-toggle" id="plotsDropdown" data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="false">Visualizations<span class="caret"></span></a>
             <ul class="dropdown-menu" aria-labelledby="plotsDropdown">
-              <li><a href="{{url_for('chloropleth')}}">Chloropleth</a></li>
-              <li><a href="{{url_for('bubblechart')}}">Bubble</a></li>
-              <li><a href="{{url_for('linechart')}}">Line</a></li>
+              <li><a href="chloropleth.html">Chloropleth</a></li>
+              <li><a href="bubblechart.html">Bubble</a></li>
+              <li><a href="linechart.html">Line</a></li>
             </ul>
           </li>
-          <li><a href="{{url_for('data')}}">Data</a></li>
+          <li><a href="data.html">Data</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -59,7 +59,7 @@
         <article class="description-content">
           <h1>What's in a name?</h1>
           <hr>
-          <a href="{{url_for('index')}}"><img class="image-main" src="{{url_for('static', filename='images/bgbgbgbg.JPG')}}"/></a>
+          <a href="index.html"><img class="image-main" src="static/images/bgbgbgbg.JPG"/></a>
           <p>Description of project here
           </p>
         </article>
@@ -70,7 +70,7 @@
         <article class="description-content">
           <h1>Word Bubble Blah</h1>
           <hr>
-          <a href="{{url_for('chloropleth')}}"><img class="image-link" src="{{url_for('static', filename='images/bgbgbgbg.JPG')}}"/></a>
+          <a href="chloropleth.html"><img class="image-link" src="static/images/bgbgbgbg.JPG"/></a>
         </article>
       </div>
     </section>
