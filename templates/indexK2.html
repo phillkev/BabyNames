@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Name</title>
+
+  <!-- Bootstrap CDN -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/main.css">
+
+  <!-- Leaflet-Choropleth JavaScript -->
+  <script type="text/javascript" src="../js/choropleth.js"></script>
+ 
+</head>
+<!--Add Navigation bar-->
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">What's in a NAME?</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="index.html" class="dropdown-toggle" id="plotsDropdown" data-toggle="dropdown" role="button"
+              aria-haspopup="true" aria-expanded="false">Visualizations<span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="plotsDropdown">
+              <li><a href="chloropleth.html">Chloropleth</a></li>
+              <li><a href="bubblechart.html">Bubble</a></li>
+              <li><a href="linechart.html">Line</a></li>
+            </ul>
+          </li>
+          <li><a href="data.html">Data</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <!-- Creates the Overall Grid -->
+  <div class= "container">
+    <section>
+      <div class="col-md-8" id="map">
+        <article class="description-content">
+          <h1>What's in a name?</h1>
+          <hr>
+          <a href="/index.html"><img class="image-main" src="static/images/bgbgbgbg.JPG"/></a>
+          <p>Description of project here
+          </p>
+        </article>
+      </div>
+    
+    
+      <div class="col-md-4">
+        <article class="description-content">
+          <h1>Word Bubble Blah</h1>
+          <hr>
+          <a href="/chloropleth.html"><img class="image-link" src="static/images/bgbgbgbg.JPG"/></a>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/logic.js"></script>
+  <script src="../js/config.js"></script>
+
+</body>
+
+</html>
