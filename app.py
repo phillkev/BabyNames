@@ -34,10 +34,10 @@ Base.prepare(engine, reflect=True)
 # Save reference to the table
 # Samples_Metadata = Base.classes.sample_metadata
 print(Base.classes.keys(), file=sys.stderr)
-test = Base.classes.NameYearCount
-test = Base.classes.stateGender
-test = Base.classes.top50
-test = Base.classes.yearName
+NameYearCount = Base.classes.NameYearCount
+stateGender = Base.classes.stateGender
+top50 = Base.classes.top50
+yearName = Base.classes.yearName
 
 # print(Base.classes.keys(), file=sys.stderr)
 # stBirthrate = Base.classes.statelevel
@@ -64,10 +64,22 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
+@app.route("/indexK2")
+def indexK2():
+    """Return the homepage."""
+    return render_template("indexK2.html")
+
+
 # @app.route("/data")
 # def data():
 #     """Return the data"""
 #     return render_template("data.html")
+
+@app.route("/name/<selectedname>")
+def name(selectedname):
+    """Return the choropleth for US"""
+    return render_template("name.html", name=selectedname)
+
 
 
 @app.route("/chloropleth")
