@@ -49,15 +49,15 @@ session = Session(engine)
 # print(Base.classes.keys(), file=sys.stderr)
 
 
-@app.route("/")
-def index():
-    """Return the homepage."""
-    # return (f"This is a test")
-    stmt = session.query(test).statement
-    df = pd.read_sql_query(stmt, session.bind)
+# @app.route("/")
+# def index():
+#     """Return the homepage."""
+#     # return (f"This is a test")
+#     stmt = session.query(test).statement
+#     df = pd.read_sql_query(stmt, session.bind)
 
-    # # Return a list of the column names (sample names)
-    return jsonify(list(df.columns)[2:])
+#     # # Return a list of the column names (sample names)
+#     return jsonify(list(df.columns)[2:])
 
 @app.route("/")
 def index():
