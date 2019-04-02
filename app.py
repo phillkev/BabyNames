@@ -71,10 +71,10 @@ def index():
 #     return render_template("data.html")
 
 
-@app.route("/choropleth")
+@app.route("/chloropleth")
 def choropleth():
     """Return the choropleth for US"""
-    return render_template("choropleth.html")
+    return render_template("chloropleth.html")
 
 
 # @app.route("/bubblechart")
