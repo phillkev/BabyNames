@@ -75,6 +75,12 @@ def indexK2():
 #     """Return the data"""
 #     return render_template("data.html")
 
+@app.route("/name/<selectedname>")
+def name(selectedname):
+    """Return the choropleth for US"""
+    return render_template("name.html", name=selectedname)
+
+
 
 @app.route("/chloropleth")
 def chloropleth():
