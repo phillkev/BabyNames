@@ -72,7 +72,7 @@ def index():
 
 
 @app.route("/chloropleth")
-def choropleth():
+def chloropleth():
     """Return the choropleth for US"""
     return render_template("chloropleth.html")
 
