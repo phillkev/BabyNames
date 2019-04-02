@@ -22,7 +22,7 @@ app = Flask(__name__)
 # rds_connection_string = "root:qo#hwNXC)4u3@127.0.0.1/usnatality"
 # app.config["SQLALCHEMY_DATABASE_URI"] = f'mysql://{rds_connection_string}'
 # db = SQLAlchemy(app)
-engine = create_engine("sqlite:///static/db/summaryTables.sqlite")
+engine = create_engine("sqlite:///db/summaryTables.sqlite")
 # rds_connection_string = "root:qo#hwNXC)4u3@127.0.0.1/world"
 # engine = create_engine(f'mysql://{rds_connection_string}')
 
@@ -33,7 +33,11 @@ Base.prepare(engine, reflect=True)
 
 # Save reference to the table
 # Samples_Metadata = Base.classes.sample_metadata
+print(Base.classes.keys(), file=sys.stderr)
+test = Base.classes.NameYearCount
 test = Base.classes.stateGender
+test = Base.classes.top50
+test = Base.classes.yearName
 
 # print(Base.classes.keys(), file=sys.stderr)
 # stBirthrate = Base.classes.statelevel
