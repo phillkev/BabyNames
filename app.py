@@ -59,7 +59,11 @@ def index():
     # # Return a list of the column names (sample names)
     return jsonify(list(df.columns)[2:])
 
+@app.route("/")
+def index():
+    """Return the homepage."""
 
+    return render_template("index.html")
 
 # @app.route("/data")
 # def data():
@@ -67,10 +71,10 @@ def index():
 #     return render_template("data.html")
 
 
-# @app.route("/choropleth")
-# def choropleth():
-#     """Return the choropleth for US"""
-#     return render_template("choropleth.html")
+@app.route("/choropleth")
+def choropleth():
+    """Return the choropleth for US"""
+    return render_template("choropleth.html")
 
 
 # @app.route("/bubblechart")
