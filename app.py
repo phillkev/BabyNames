@@ -34,21 +34,13 @@ Base.prepare(engine, reflect=True)
 # Save reference to the table
 # Samples_Metadata = Base.classes.sample_metadata
 print(Base.classes.keys(), file=sys.stderr)
-NameYearCount = Base.classes.NameYearCount
 stateGender = Base.classes.stateGender
 top50 = Base.classes.top50
 yearName = Base.classes.yearName
 
-# print(Base.classes.keys(), file=sys.stderr)
-# stBirthrate = Base.classes.statelevel
-# ctBirthrate = Base.classes.countylevel
 
 # Create our session (link) from Python to the DB
 session = Session(engine) 
-#print (Base.classes.keys())
-# print(Base.classes.keys(), file=sys.stderr)
-
-
 
 
 @app.route("/")
@@ -56,10 +48,6 @@ def index():
     """Return the homepage."""
     return render_template("index.html")
 
-# @app.route("/indexK2")
-# def indexK2():
-#     """Return the homepage."""
-#     return render_template("indexK2.html")
 
 @app.route("/data")
 def data():
@@ -72,11 +60,6 @@ def data():
     return jsonify(list(df.columns)[2:])
 
 
-# @app.route("/data")
-# def data():
-#     """Return the data"""
-#     return render_template("data.html")
-
 @app.route("/name")
 def name():
     """Return the choropleth for US"""
@@ -84,10 +67,10 @@ def name():
 
 
 
-@app.route("/chloropleth")
-def chloropleth():
-    """Return the choropleth for US"""
-    return render_template("chloropleth.html")
+# @app.route("/chloropleth")
+# def chloropleth():
+#     """Return the choropleth for US"""
+#     return render_template("chloropleth.html")
 
 
 # @app.route("/bubblechart")
