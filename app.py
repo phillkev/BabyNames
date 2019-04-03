@@ -54,7 +54,7 @@ session = Session(engine)
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("index.html", top50=top50, stateGender=stateGender)
+    return render_template("index.html")
 
 # @app.route("/indexK2")
 # def indexK2():
