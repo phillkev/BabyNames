@@ -35,7 +35,7 @@ Base.prepare(engine, reflect=True)
 # Samples_Metadata = Base.classes.sample_metadata
 print(Base.classes.keys(), file=sys.stderr)
 stateGender = Base.classes.stateGender
-top50 = Base.classes.top50
+wordcloud = Base.classes.wordcloud
 yearName = Base.classes.yearName
 
 
@@ -53,11 +53,11 @@ def index():
 def data():
     """Return the homepage."""
     # return (f"This is a test")
-    stmt = session.query(top50).statement
+    stmt = session.query(wordcloud).statement
     df = pd.read_sql_query(stmt, session.bind)
 
     # # Return a list of the column names (sample names)
-    return jsonify(list(df.columns)[2:])
+    return jsonify(list(df.columns))
 
 
 @app.route("/name")
