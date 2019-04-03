@@ -49,25 +49,27 @@ session = Session(engine)
 # print(Base.classes.keys(), file=sys.stderr)
 
 
-# @app.route("/")
-# def index():
-#     """Return the homepage."""
-#     # return (f"This is a test")
-#     stmt = session.query(test).statement
-#     df = pd.read_sql_query(stmt, session.bind)
 
-#     # # Return a list of the column names (sample names)
-#     return jsonify(list(df.columns)[2:])
 
 @app.route("/")
 def index():
     """Return the homepage."""
     return render_template("index.html", top50=top50, stateGender=stateGender)
 
-@app.route("/indexK2")
-def indexK2():
+# @app.route("/indexK2")
+# def indexK2():
+#     """Return the homepage."""
+#     return render_template("indexK2.html")
+
+@app.route("/data")
+def data():
     """Return the homepage."""
-    return render_template("indexK2.html")
+    # return (f"This is a test")
+    stmt = session.query(top50).statement
+    df = pd.read_sql_query(stmt, session.bind)
+
+    # # Return a list of the column names (sample names)
+    return jsonify(list(df.columns)[2:])
 
 
 # @app.route("/data")
