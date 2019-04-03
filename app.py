@@ -62,7 +62,7 @@ session = Session(engine)
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("index.html")
+    return render_template("index.html", top50=top50, stateGender=stateGender)
 
 @app.route("/indexK2")
 def indexK2():
@@ -75,10 +75,10 @@ def indexK2():
 #     """Return the data"""
 #     return render_template("data.html")
 
-@app.route("/name/<selectedname>")
-def name(selectedname):
+@app.route("/name")
+def name():
     """Return the choropleth for US"""
-    return render_template("name.html", name=selectedname)
+    return render_template("name.html", yearName=yearName)
 
 
 
