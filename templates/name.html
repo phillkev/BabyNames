@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Name</title>
+
+  <!-- Bootstrap CDN -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/main.css">
+
+  <!-- Leaflet-Choropleth JavaScript -->
+  <script type="text/javascript" src="../js/choropleth.js"></script>
+ 
+</head>
+
+<body>
+  
+  <!-- Creates the Overall Grid -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>What's in MY name?</h1>
+      </div>
+    </div>
+
+<div class= "container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="line"></div>
+        </div>
+        <div class="col-md-6">
+            <div id="map_2"></div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Michael">
+            <span class="form-group-btn">
+                <button class="btn btn-default" id="filter-btn" type="submit">Search</button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+<script src="{{ url_for('static', filename='js/config.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
