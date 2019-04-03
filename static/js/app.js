@@ -26,7 +26,7 @@ function init() {
                 .on("end", end)
                 .start();
         
-            function end(words) { console.log(JSON.stringify(words)); } 
+            // function end(words) { console.log(JSON.stringify(words)); } 
         
     
     });
