@@ -7,6 +7,12 @@
     color: #000000;
   }
 
+  .form-control {
+    display: inline-block;
+    width: 140px;
+    font-weight: bolder;
+  }
+
     img {
         vertical-align: middle;
     }
