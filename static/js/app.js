@@ -1,19 +1,19 @@
 function init() {
     
-    d3.json(`/`).then(() => {
+    d3.json(`/`).then((top50) => {
         // Use d3 to select the panel 
         d3.select("#word_cloud");
-            // const babynames = top50.name;
-            // const babycount = top50.count;
+            const babynames = top50.name;
+            const babycount = top50.total_count;
     
             // build word cloud 
             var Canvas = require("canvas");
         
             var cloud = require("../");
         
-            var words = ["Hello", "world", "normally", "you", "want", "more", "words", "than", "this"]
+            var words = [babynames]
             .map(function(d) {
-            return {text: d, size: 10 + Math.random() * 90};
+            return {text: d, size: babycount};
             });
         
             cloud().size([960, 500])
@@ -26,7 +26,7 @@ function init() {
                 .on("end", end)
                 .start();
         
-            function end(words) { console.log(JSON.stringify(words)); } 
+            // function end(words) { console.log(JSON.stringify(words)); } 
         
     
     });
