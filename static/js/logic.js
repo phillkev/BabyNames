@@ -1,6 +1,6 @@
 // Creating map object
 var myMap = L.map("map", {
-  center: [39.8283, -98.5795],
+  center: [37.8283, -98.5795],
   zoom: 5
 });
 
@@ -14,13 +14,42 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 var geojsonLayer;
 
-var geojsonLayer = new L.GeoJSON.AJAX("states.geojson").on('data:loaded', function () {
-  myMap.fitBounds(geojsonLayer.getBounds());
-}); 
+var geojsonLayer = new L.GeoJSON.AJAX("states.geojson")//.on('data:loaded', function () {
+//  myMap.fitBounds(geojsonLayer.getBounds());
+//}); 
 geojsonLayer.addTo(myMap);
 
 
-//Map.on('load', function() {
+
+function buildCharts(sample) {
+
+  // @TODO: Use `d3.json` to fetch the sample data for the plots
+  d3.json("/chorodata").then(function(smplData){
+    smplData = smplData.sort(function(a, b) {
+      return b.sample_values - a.sample_values;
+    });
+ 
+  // @TODO: Build a Bubble Chart using the sample data
+  // create arrays for the bubble chart
+ 
+    var bubbleValues = smplData.map(sample => sample.sample_values);
+    // Added 20 to the sample_value so the bubbles with very small sample sizes were more visible.
+    // Adding a flat value was more desirable than a more complex formula since we do not want
+    // The large sample sizes to get too large.
+    // See sample 1526 for an example of a set with very small bacteria samples.
+    var bithYear = smplData.map(sample => sample.sample_values + 20);
+    var birthState = smplData.map(sample => sample.otu_id );
+    var birthGender = smplData.map(sample => sample.otu_label );
+    var birthCount = smplData.map(sample => sample.otu_label );
+
+  });
+
+};
+
+
+
+
+    //Map.on('load', function() {
 
 //  Map.addLayer({
 //    'id': 'states',
