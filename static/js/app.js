@@ -1,10 +1,10 @@
 function init() {
     
-    d3.json(`/`).then((top50) => {
+    d3.json(`/`).then((wordcloud) => {
         // Use d3 to select the panel 
         d3.select("#word_cloud");
-            const babynames = top50.Name;
-            const babycount = top50.total_count;
+            const babynames = wordcloud.Name;
+            const babycount = wordcloud.total_count;
     
             // build word cloud 
             var Canvas = require("canvas");
