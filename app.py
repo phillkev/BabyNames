@@ -84,6 +84,16 @@ def cloudchartdata():
     print(top50)
     return jsonify(top50)
 
+
+@app.route("/cloudchartdata2")
+def cloudchartdata2():
+
+    stmt = session.query(wordcloud).statement
+    df = pd.read_sql_query(stmt, session.bind)
+
+    data = df.to_json(orient='records')
+    return jsonify(data)
+
 # @app.route("/chloropleth")
 # def chloropleth():
 #     """Return the choropleth for US"""
