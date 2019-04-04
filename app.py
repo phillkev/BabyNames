@@ -65,7 +65,24 @@ def name():
     """Return the choropleth for US"""
     return render_template("name.html", yearName=yearName)
 
+@app.route("/cloudchartdata")
+def cloudchartdata():
+    """Return the MetaData for a given sample."""
+    sel = [
+        wordcloud.Name,
+        wordcloud.total_count,
+    ]
 
+    results = session.query(*sel).all()
+    print(results)
+    # Create a dictionary entry for each row of metadata information
+    top50 = {}
+    for result in results:
+        top50["Name"] = result[0]
+        top50["total_count"] = result[1]
+
+    print(top50)
+    return jsonify(top50)
 
 # @app.route("/chloropleth")
 # def chloropleth():
