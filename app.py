@@ -94,6 +94,25 @@ def cloudchartdata2():
     data = df.to_json(orient='records')
     return jsonify(data)
 
+
+@app.route("/linechart")
+def linechart():
+
+    stmt = session.query(yearName).statement
+    df = pd.read_sql_query(stmt, session.bind)
+
+    data = df.to_json(orient='records')
+    return jsonify(data)
+
+@app.route("/chlorodata")
+def chlorodata():
+
+    stmt = session.query(stateGender).statement
+    df = pd.read_sql_query(stmt, session.bind)
+
+    data = df.to_json(orient='records')
+    return jsonify(data)
+
 # @app.route("/chloropleth")
 # def chloropleth():
 #     """Return the choropleth for US"""
