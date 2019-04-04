@@ -1,10 +1,13 @@
 function init() {
 
-    d3.json(`/`).then((wordcloud) => {
+    one = {"Name": "Eric",
+    "total_count": 865555}
+
+    d3.json(`/`).then((word) => {
         // Use d3 to select the panel 
         d3.select("#word_cloud");
-        const babynames = wordcloud.Name;
-        const babycount = wordcloud.total_count;
+        const babynames = one.Name;
+        const babycount = one.total_count;
 
         // build word cloud 
         var Canvas = require("canvas");
@@ -29,7 +32,10 @@ function init() {
         function end(words) { console.log(JSON.stringify(words)); }
 
 
-    });
+    })
+    
+    .catch((e) => {return console.log(e)})
+
 }
 
 // Initialize 
