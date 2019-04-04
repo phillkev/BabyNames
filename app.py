@@ -34,58 +34,70 @@ Base.prepare(engine, reflect=True)
 # Save reference to the table
 # Samples_Metadata = Base.classes.sample_metadata
 print(Base.classes.keys(), file=sys.stderr)
-NameYearCount = Base.classes.NameYearCount
 stateGender = Base.classes.stateGender
-top50 = Base.classes.top50
+wordcloud = Base.classes.wordcloud
 yearName = Base.classes.yearName
 
-# print(Base.classes.keys(), file=sys.stderr)
-# stBirthrate = Base.classes.statelevel
-# ctBirthrate = Base.classes.countylevel
 
 # Create our session (link) from Python to the DB
 session = Session(engine) 
-#print (Base.classes.keys())
-# print(Base.classes.keys(), file=sys.stderr)
 
-
-# @app.route("/")
-# def index():
-#     """Return the homepage."""
-#     # return (f"This is a test")
-#     stmt = session.query(test).statement
-#     df = pd.read_sql_query(stmt, session.bind)
-
-#     # # Return a list of the column names (sample names)
-#     return jsonify(list(df.columns)[2:])
 
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("index.html", top50=top50, stateGender=stateGender)
+    return render_template("index.html", stateGender=stateGender, wordcloud=wordcloud)
 
-@app.route("/indexK2")
-def indexK2():
+
+@app.route("/data")
+def data():
     """Return the homepage."""
-    return render_template("indexK2.html")
+    # return (f"This is a test")
+    stmt = session.query(wordcloud).statement
+    df = pd.read_sql_query(stmt, session.bind)
 
+    # # Return a list of the column names (sample names)
+    return jsonify(list(df.columns))
 
-# @app.route("/data")
-# def data():
-#     """Return the data"""
-#     return render_template("data.html")
 
 @app.route("/name")
 def name():
     """Return the choropleth for US"""
     return render_template("name.html", yearName=yearName)
 
+@app.route("/cloudchartdata")
+def cloudchartdata():
+    """Return the MetaData for a given sample."""
+    sel = [
+        wordcloud.Name,
+        wordcloud.total_count,
+    ]
+
+    results = session.query(*sel).all()
+    print(results)
+    # Create a dictionary entry for each row of metadata information
+    top50 = {}
+    for result in results:
+        top50["Name"] = result[0]
+        top50["total_count"] = result[1]
+
+    print(top50)
+    return jsonify(top50)
 
 
-@app.route("/chloropleth")
-def chloropleth():
-    """Return the choropleth for US"""
-    return render_template("chloropleth.html")
+@app.route("/cloudchartdata2")
+def cloudchartdata2():
+
+    stmt = session.query(wordcloud).statement
+    df = pd.read_sql_query(stmt, session.bind)
+
+    data = df.to_json(orient='records')
+    return jsonify(data)
+
+# @app.route("/chloropleth")
+# def chloropleth():
+#     """Return the choropleth for US"""
+#     return render_template("chloropleth.html")
 
 
 # @app.route("/bubblechart")

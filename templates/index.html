@@ -18,6 +18,10 @@
 
   <!-- Leaflet-Choropleth JavaScript -->
   <script type="text/javascript" src="../js/choropleth.js"></script>
+
+  <!-- wordcloud -->
+  <script src="../static/js/d3-wordcloud/lib/d3/d3.js"></script>
+  <script src="../static/js/d3-wordcloud/lib/d3/d3.layout.cloud.js"></script>
  
 </head>
 
@@ -55,10 +59,14 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <!-- wordcloud -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+  <script src="../static/js/d3-wordcloud/d3.wordcloud.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
   <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
   <script src="{{ url_for('static', filename='js/config.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  
 
 </body>
 
