@@ -12,19 +12,27 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: API_KEY
 }).addTo(myMap);
 
-Map.on('load', function() {
+var geojsonLayer;
 
-  Map.addLayer({
-    'id': 'states',
-    'type': 'fill',
-    'source': '../Geojson/states.geojson',
-    'layout': {},
-    'paint': {
-      'fill-color': '#088',
-      'fill-opacity': 0.8
-    }
-    });
-  });
+var geojsonLayer = new L.GeoJSON.AJAX("states.geojson").on('data:loaded', function () {
+  myMap.fitBounds(geojsonLayer.getBounds());
+}); 
+geojsonLayer.addTo(myMap);
+
+
+//Map.on('load', function() {
+
+//  Map.addLayer({
+//    'id': 'states',
+//    'type': 'fill',
+//    'source': '../Geojson/states.geojson',
+//    'layout': {},
+//    'paint': {
+//      'fill-color': '#088',
+//      'fill-opacity': 0.8
+//    }
+//    });
+//  });
 
 //var states;
 
