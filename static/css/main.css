@@ -1,3 +1,6 @@
+  body {
+    background-color: rgb(197, 182, 240)
+  }
 
   .form-control {
     display: inline-block;
@@ -5,71 +8,28 @@
     font-weight: bolder;
   }
 
+  .jumbotron.text-center {
+    background: rgb(197, 182, 240)
+  }
+  
+  .col-med-4 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
     img {
-        vertical-align: middle;
+        background-color: white;
+        height: 600px;
+        width: 1000px;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
     }
-    .image-link {
-        height: 150px;
-        width: 150px;
-        margin-bottom: 5px;
-        margin-top: 5px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    .image-comp {
-        height: 360px;
-        width: 440px;
-        margin-bottom: 7px;
-        margin-top: 7px;
-        margin-left: 37px;
-        margin-right: 5px;
-    }
-    .image-main {
-        height: 360px;
-        width: 420px;
-        margin-bottom: 5px;
-        margin-top: 5px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+ 
     .h1 {
         margin-top: 20px;
         margin-bottom: 20px;
     }
     
-    .table {
-        background-color: #fdfdfd;
-    }
-    .table-responsive {
-        overflow-x: auto;
-        min-height: 0.01%;
-      }
-      @media screen and (max-width: 767px) {
-        .table-responsive {
-          width: 100%;
-          margin-bottom: 15px;
-          overflow-y: hidden;
-          -ms-overflow-style: -ms-autohiding-scrollbar;
-          border: 1px solid #ddd;
-        }
-      }
-      /* Adding media queries to show the drop-down, and hide the navbar when the screen is smaller than 480 pixels */
-@media (max-width: 480px) {
-    .navbar li {
-      padding: 10px;
-    }
-  
-    .post {
-      margin-right: 30px;
-      margin-left: 30px;
-    }
-  
-    .navbar ul {
-      visibility: hidden;
-    }
-  
-    #nav-select {
-      visibility: visible;
-    }
-  }
-  
+    
+      
