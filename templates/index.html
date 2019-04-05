@@ -12,7 +12,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sandstone/bootstrap.min.css" rel="stylesheet" integrity="sha384-T5jhQKMh96HMkXwqVMSjF3CmLcL1nT9//tCqu9By5XSdj7CwR0r+F3LTzUdfkkQf" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-T5jhQKMh96HMkXwqVMSjF3CmLcL1nT9//tCqu9By5XSdj7CwR0r+F3LTzUdfkkQf" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/main.css">
 
   <!-- Leaflet-Choropleth JavaScript -->
@@ -43,12 +43,12 @@
         <div id="map"></div>
       </div>
       <div class="col-md-6">
-        <p>Here's where we explain our dataset. blah blah blah <a href="/name">Click here to learn more about your name</a></p>
+        <p>Here's where we explain our dataset. blah blah blah</p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-          <div class="card border-success mb-3" style="max-width: 20rem;">
+          <div class="card border-primary mb-3" style="max-width: 20rem;">
               <div class="card-header">Fun Name Facts</div>
               <div class="card-body">
                 <h4 class="card-title">Info card title</h4>
@@ -61,6 +61,22 @@
       </div>
     </div>
   </div>
+  <div class= "container">
+      <div class="row">
+          <div class="form-group">
+              <input type="text" class="form-control" id="name" placeholder="Michael">
+                  <span class="form-group-btn">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <!--<button class="btn btn-default" id="filter-btn" type="submit">Search</button>-->
+                  </span>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-10">
+              <div id="line"></div>
+          </div> 
+      </div>
+</div>
 
   <!-- wordcloud -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
