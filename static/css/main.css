@@ -11,7 +11,11 @@
   .jumbotron.text-center {
     background: rgb(197, 182, 240)
   }
-  
+  .data-text {
+    text-align: center;
+    padding-right: 30%;
+    padding-left: 0%;
+  }
   .col-med-4 {
     padding-left: 15px;
     padding-right: 15px;
