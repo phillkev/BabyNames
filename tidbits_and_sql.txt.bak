@@ -1,0 +1,57 @@
+This data is based on Social Security registration versus birth records so it does not represent the full data set of names but it does give us an interesting view of peoples names in US history.
+Based on this data 30274 names have been used in the US, keep in mind spelling differences are treated as unique names.
+
+	select distinct name
+	from stateNames
+
+Of these 2896 are gender agnostic names
+
+	create table statenameGender
+	as select distinct name, gender
+	from stateNames
+
+	select name, count(gender)
+	from statenameGender
+	group by name
+	having count(gender) >1
+
+Looking looking at the data from 1910-1914 and comparing the names list to 2010-2014 there are some interesting details
+Ethel was the most common name name used between 1910-2014 that does not show up between 2010-2014.  Ethel might have been popularized by Ethel Barrymore who was a famous movie star (grand aunt to Drew Barrymore)
+Only two Male names show up in the top 20.  Wilbur and Orville.  Looks like technological breakthrough can impact name popularity!
+
+
+	Ethel	24914
+	Gertrude	18621
+	Bessie	13620
+	Myrtle	12609
+	Blanche	8361
+	Beulah	7290
+	Velma	6702
+	Alberta	5148
+	Mable	4088
+	Wilbur	3660
+	Nettie	3539
+	Eula	3460
+	Maude	2917
+	Wanda	2633
+	Freda	2461
+	Dorothea	2439
+	Lorene	2257
+	Orville	2227
+	Ola	2215
+	Leola	2165
+
+	select name,sum(count)
+	from stateNames
+	where year between 1910 and 1914
+	and name not in (select distinct name
+	from stateNames
+	where year between 2010 and 2014)
+	group by name
+	order by sum(count) desc
+
+
+
+
+
+
