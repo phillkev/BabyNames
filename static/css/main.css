@@ -11,26 +11,46 @@
   .jumbotron.text-center {
     background: rgb(197, 182, 240)
   }
-  
+  .data-text {
+    text-align: center;
+    padding-right: 30%;
+    padding-left: 0%;
+  }
   .col-med-4 {
     padding-left: 15px;
     padding-right: 15px;
   }
     img {
         background-color: white;
-        height: 570px;
-        width: 640px;
+        height: 590px;
+        width: 660px;
         padding-left: 0px;
         padding-right: 0px;
         margin-right: 0px;
         margin-left: 0px;
     }
   .card-body {
-    height: 523px;
+    height: 540px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }    
   .card-header{
     size: 18px;
   }
+  .hr {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .card-text{
+    size: 12px;
+    margin-bottom: 0px;
+  }
+.card-title {
+  text-align: center;
+}
   .h1 {
         margin-top: 20px;
         margin-bottom: 20px;
