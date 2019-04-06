@@ -55,6 +55,21 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    
+ img.linechart{
+  height: 580px;
+  width: 860px;
+ }   
+ img.map{
+  height: 500px;
+  width: 660px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ p.top{
+   text-align: center;
+ }
     
       
