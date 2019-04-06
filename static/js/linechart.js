@@ -11,7 +11,7 @@ function handleClick() {
 }
 
 // Attach an event to listen for the form button
-d3.selectAll("#filter-btn").on("click", handleClick);
+d3.selectAll("#form-group-btn").on("click", handleClick);
 
 function buildChart(userSelection) {
     // // Grab json and populate chart
