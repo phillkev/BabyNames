@@ -6,15 +6,8 @@ function handleClick() {
     // Grab the name from the filter
     var name = d3.select("#name").property("value");
     
-    if (name) {
-        if(isEmpty(data)) {
-            // Object is empty (Would return true in this example)
-            return "Name not found."
-        } else {
-            // Object is NOT empty and build chart
-            buildChart(data);
-        }
-    }  
+    // Build the chart with the selected name
+    buildChart(name)
 }
 
 // Attach an event to listen for the form button
@@ -25,22 +18,29 @@ function buildChart(userSelection) {
     console.log(userSelection);
     var url = `/linechart/${userSelection}`;
     d3.json(url).then(function (response) {
-
-        // Line
-        var trace = [{
-            x: response.Year,
-            y: response.total_count,
-            // hovertext: response.total_count,
-            type: "scatter"
-        }];
-
-        var layout = {
-            title: name,
-            xaxis: { title: 'Year' },
-            yaxis: { title: 'Number of Instances' }
-        };
-        var chart = document.getElementById('line');
-        Plotly.newPlot(chart, trace, layout);
+        if (userSelection) {
+            if(isEmpty(userSelection)) {
+                // Object is empty (Would return true in this example)
+                return "Name not found."
+            } else {
+                // Object is NOT empty and build chart
+                var trace = [{
+                    x: response.Year,
+                    y: response.total_count,
+                    // hovertext: response.total_count,
+                    type: "scatter"
+                }];
+        
+                var layout = {
+                    title: name,
+                    xaxis: { title: 'Year' },
+                    yaxis: { title: 'Number of Instances' }
+                };
+                var chart = document.getElementById('line');
+                Plotly.newPlot(chart, trace, layout);
+            }
+        }  
+        
     })
 }
 
