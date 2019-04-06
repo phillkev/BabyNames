@@ -43,11 +43,6 @@ def index():
     return render_template("index.html", statecount=statecount, wordcloud=wordcloud)
 
 
-# @app.route("/name")
-# def name():
-#     """Return the choropleth for US"""
-#     return render_template("name.html", yearName=yearName)
-
 @app.route("/cloudchartdata")
 def cloudchartdata():
     """Return the MetaData for a given sample."""
@@ -78,19 +73,25 @@ def cloudchartdata2():
     return jsonify(data)
 
 
-@app.route("/linechart")
-def linechart():
+@app.route("/linechart/<userSelection>")
+def linechart(userSelection):
 
     stmt = session.query(yearName).statement
     df = pd.read_sql_query(stmt, session.bind)
 
-    data = df.to_json(orient='records')
-    return jsonify(data)
+    # Filter the data based on the sample number and
+    # only keep rows with values above 1
+    print(df)
+    sample_data = df[df.Name.str.lower() == userSelection]
+    print(sample_data)
+    print(userSelection)
+    data = sample_data.to_json(orient='records')
+    return data
 
 @app.route("/chlorodata")
 def chlorodata():
 
-    stmt = session.query(stateGender).statement
+    stmt = session.query(statecount).statement
     df = pd.read_sql_query(stmt, session.bind)
 
     data = df.to_json(orient='records')
